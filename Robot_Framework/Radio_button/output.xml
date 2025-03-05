@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.12.6 on win32)" generated="2025-03-05T15:12:21.903207" rpa="false" schemaversion="5">
+<suite id="s1" name="Radio button" source="C:\Users\Mukesh Prajapati\turtleproject\pythonProject3\TestcaseSLNM\milestone_project\Radio_button.robot">
+<test id="s1-t1" name="Varify Radio Button" line="9">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-05T15:12:22.171274" level="INFO">Opening browser 'chrome' to base url 'https://rahulshettyacademy.com/AutomationPractice/'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-05T15:12:22.170269" elapsed="4.240011"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-05T15:12:26.411367" elapsed="0.300471"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-05T15:12:28.713252" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-05T15:12:26.711838" elapsed="2.001414"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-05T15:12:28.714261" level="INFO">Clicking element '//input[@value='radio1']'.</msg>
+<arg>//input[@value='radio1']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-05T15:12:28.713252" elapsed="0.152318"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-05T15:12:30.866928" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-05T15:12:28.866558" elapsed="2.001964"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-05T15:12:30.870554" level="INFO">Clicking element '//select[@id='dropdown-class-example']'.</msg>
+<arg>//select[@id='dropdown-class-example']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-05T15:12:30.869537" elapsed="0.168331"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-05T15:12:33.039550" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-05T15:12:31.038880" elapsed="2.001195"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-05T15:12:33.041094" level="INFO">Clicking element '//input[@id='name']'.</msg>
+<arg>//input[@id='name']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-05T15:12:33.041094" elapsed="0.248720"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-05T15:12:33.291838" level="INFO">Typing text 'Shubham' into text field '//input[@id='name']'.</msg>
+<arg>//input[@id='name']</arg>
+<arg>Shubham</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-05T15:12:33.291838" elapsed="0.125603"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-05T15:12:35.420615" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-05T15:12:33.418699" elapsed="2.001916"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-03-05T15:12:35.421624" level="INFO">Clicking button '//input[@id='confirmbtn']'.</msg>
+<arg>//input[@id='confirmbtn']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-05T15:12:35.420615" elapsed="0.187979"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-05T15:12:38.610906" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-05T15:12:35.609585" elapsed="3.001321"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-05T15:12:38.611932" elapsed="2.349528"/>
+</kw>
+<status status="PASS" start="2025-03-05T15:12:22.168199" elapsed="18.794261"/>
+</test>
+<status status="PASS" start="2025-03-05T15:12:21.905208" elapsed="19.058251"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Radio button" id="s1" pass="1" fail="0" skip="0">Radio button</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
