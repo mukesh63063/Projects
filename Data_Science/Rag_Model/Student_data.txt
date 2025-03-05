@@ -1,0 +1,208 @@
+It sounds like the students in this group have been eagerly awaiting their opportunity to join Wipro, and the anticipation has been building over the past two years. This excitement reflects their dedication and enthusiasm for their careers. However, the rigorous filtering process and multiple exams conducted by Wipro might have added a layer of stress and uncertainty.
+
+General Feelings Among the Students:
+Excitement and Determination:
+The journey toward securing a position at Wipro has been long, but the students are thrilled to be so close to achieving their goals. This excitement stems from their hard work, and they view this opportunity as a significant milestone in their professional lives.
+
+Anxiety Over the Selection Process:
+The multiple exams and filtering stages have undoubtedly been challenging. While they understand that Wipro aims to select the best candidates, the process may have caused some nervousness.
+
+Optimism and Confidence:
+Many students, like Pullyanaidu Rampam, who is skilled in Python, and others with strong technical and interpersonal skills, remain confident about their abilities, Pullyanaidu rampam is from Andra Pradesh .This confidence helps them stay positive during the selection journey.
+
+Supportive Environment:
+The presence of trainers like Saynam Panday and Abhishek Garg, who are known for their calm and helpful nature, has likely created a supportive and encouraging learning environment, helping students manage stress and focus on their preparation.
+
+In summary, while the students are excited and motivated, they are also navigating the challenges of a competitive selection process. Their hard work and the guidance from their trainers will be key to their success.
+Some class students name is Mukesh Prajapati, Pullynaidu Rampam, NIkki , Rohan Panday, Harshal, Ayushi Shinha, Gauri Priya rest students are there but i am showing few students name sorry.
+
+Mr Abhishek Garg are very cool and helping nature whatever you ask they will not angry and now he  is doing as trainer in the wipro.
+
+In the interview, they asked about opps concept like create class and what data structures. Write a code sum of 1 to 100. Take input from user and check this even or odd and all operators and whatever sayam sir has tought in the class you do practise and feel panic be cool and every think will become good.
+
+Viva question is
+what is function ?
+what class, instance variable, static variable and local variable like method,
+basic question they will ask?
+do not take serious be cool.
+
+1. ASSINGMENT
+------------------------------
+n = int(input("enter the number :- "))
+if n%2 == 0:
+    square = n**2
+    print("Number is even square:- ",square)
+else:
+    qube = n**3
+    print("Number is odd qube:- ", qube)
+while True:
+    choice_input = input("you want to enter another number yes/no").lower()
+    if choice_input == "yes":
+        n = int(input("emter the number:- "))
+        if n%2 == 0:
+            square = n**2
+            print("The number is even: -", square)
+        else:
+            qube = n**3
+            print("The number is odd:- ", qube)
+    elif choice_input == "no":
+        print("You have entered the no")
+        break
+    else:
+        print("Invalid choice_input")
+
+2. ASSINGMENT
+------------------------------
+
+Modularization :-  Modularization is a process that involves breaking down a program into small codes. Modular code helps improve reusability, readability, and maintainability. This document defines two modular functions.
+
+There are two problems:-
+1. Factorial Function: Computes the factorial of a number.
+2. Fibonacci Function: Computes the Fibonacci sequence up to the nth term.
+
+1. Factorial Function:
+The factorial of a number n, which is denoted as n!. And product of the all positive integers less than or equal to n.
+Example:  3!  = 1*2*3 = 6
+
+i).  Pseudocode:-
+  Pseudocode is the process of writing the logic of the code or algorithm in a simplified, human-readable format (written in high level language).
+ It can include elements resembling Python, Java, or C++, but it is not tied to any specific language.
+
+ Function factorial(n):
+    If n == 0 or n == 1:
+        Return 1
+    Else:
+        Return n * factorial(n - 1)
+Explanation:
+  i). The function calculates the factorial of the n recursive.
+ ii). The base case is when n is 0 or 1 then result is 1.
+iii). Otherwise the function multiplies n by the factorial of (n-1).
+
+ii). Python code:
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+2. Fibonacci Function:
+The Fibonacci sequence is a series of numbers where each number is the sum of the two preceding ones, starting from 0 and 1.
+Examples:
+Fibonacci sequence: 0,1,1,2,3,5,8,.....
+
+i). Pseudocode:
+Function fibonacci(s):
+    a, b = 0, 1
+    Initialize list l with [a, b]
+    If s == 0:
+        Return [0]
+    Else If s == 1:
+        Return [0, 1]
+    For i in range(2, s):
+        c = a + b
+        Append c to list l
+        Update a, b to b, c
+    Return list l
+
+ii). Explanation:
+  i). The function generates the Fibonacci sequence iteratively.
+ ii). It starts with the first two numbers, 0 and 1, and then iteratively calculates subsequent numbers.
+iii).The sequence is built in a list, and the final sequence is returned.
+
+ii). Python code:
+
+def fibn():
+    a, b = 0, 1
+    l = [a, b]  # Starting Fibonacci list
+    s = int(input("Enter the number of Fibonacci numbers to calculate: "))
+
+    if s == 0:
+        return [0]  # Return 0 if no Fibonacci numbers are requested
+    elif s == 1:
+        return [0, 1]  # Return the first two Fibonacci numbers
+
+    # Generate Fibonacci sequence
+    for i in range(2, s):
+        c = a + b
+        l.append(c)
+        a, b = b, c
+
+    return l  # Return the complete Fibonacci sequence
+
+# Example usage:
+fibonacci_result = fibn()
+print(fibonacci_result)
+
+Modularization Benefits:
+
+1. Code Reusability: Functions like factorial and Fibonacci can be reused wherever needed, saving time and reducing duplication.
+2. Organization: Dividing the program into modular functions makes the code cleaner and more organized. Each function performs a single task, improving readability and maintainability.
+3. Maintainability: Modifications to one function (e.g., improving the factorial logic) can be made independently without altering the rest of the code.
+4. Debugging and Testing: Since each function is isolated, debugging and testing become easier, as problems can be traced to specific functions.
+5. Scalability: As the program grows, new functions can be added without disturbing existing functionalities, making the program scalable and flexible for future requirements.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3- ASSIGNMENT
+
+Bubble Sort Algorithm:-
+---------------------------------
+
+Bubble Sort is a simple sorting algorithm. It works by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they are in the wrong order. This process continues until the list is sorted. The algorithm gets its name because larger elements "bubble" to the top of the list in each iteration.
+
+i).  Pseudocode for Bubble Sort :-
+     --------------------------------------------
+
+Input: An array A of size N
+Output: Sorted array A in ascending order
+
+1. Start
+2. Repeat for i = 0 to N-1:
+     a. Set a flag variable Swapped = false
+     b. Repeat for j = 0 to N-2-i:
+          i.   If A[j] > A[j+1], then:
+                  - Swap A[j] and A[j+1]
+                  - Set Swapped = true
+     c. If Swapped = false:
+          - Break (the array is already sorted)
+3. End
+
+ii). Flowchart :-
+     ------------------
+A flowchart is a visual representation of the steps in a process or algorithm. It uses symbols to represent different types of actions or decisions and shows the flow of the process through arrows connecting these symbols.
+
+check the document file
+
+iii)  Example:-  Array
+Input Array:
+[5, 3, 8, 6, 2]
+
+Steps to Sort:
+Compare 5 and 3. Swap → [3, 5, 8, 6, 2].
+Compare 5 and 8. No Swap → [3, 5, 8, 6, 2].
+Compare 8 and 6. Swap → [3, 5, 6, 8, 2].
+Compare 8 and 2. Swap → [3, 5, 6, 2, 8].
+Repeat the process until the array becomes: [2, 3, 5, 6, 8].
+
+5g wireless trainer name is Miss Satinder.  There are 49 students. Aniket kumar srivastva birthday on 26-12-2024.
+I am taking training from Wirpo company.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
