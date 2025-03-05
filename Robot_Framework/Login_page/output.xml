@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.12.6 on win32)" generated="2025-03-05T11:49:46.061431" rpa="false" schemaversion="5">
+<suite id="s1" name="Check Login Page" source="C:\Users\Mukesh Prajapati\turtleproject\pythonProject3\TestcaseSLNM\Login_robot\check_login_page.robot">
+<test id="s1-t1" name="Verify Login Page" line="9">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-05T11:49:46.344696" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-05T11:49:46.343676" elapsed="6.327645"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-05T11:49:52.673324" elapsed="0.040402"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-05T11:49:57.716119" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-05T11:49:52.714726" elapsed="5.001393"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-05T11:49:57.719150" level="INFO">Typing text 'Admin@123' into text field '//input[@name='username']'.</msg>
+<arg>//input[@name='username']</arg>
+<arg>Admin@123</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-05T11:49:57.717145" elapsed="0.165748"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-05T11:50:02.884118" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-05T11:49:57.883931" elapsed="5.000187"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-05T11:50:02.884118" elapsed="2.400252"/>
+</kw>
+<status status="PASS" start="2025-03-05T11:49:46.342668" elapsed="18.942688"/>
+</test>
+<status status="PASS" start="2025-03-05T11:49:46.063649" elapsed="19.223711"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Check Login Page" id="s1" pass="1" fail="0" skip="0">Check Login Page</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
