@@ -52,3 +52,34 @@ conn.commit()
 cursor.close()
 conn.close()
 print("\n Database operation completed successfully!")
+
+
+'''
+Output
+------
+Book Records:
+(1, 'The Alchemist', 'Paulo Coelho', 1990)
+(2, '1984', 'George Orwell', 1949)
+(3, 'To Kill a Mockingbird', 'Harper Lee', 1960)
+(4, 'The Alchemist', 'Paulo Coelho', 1990)
+(5, '1984', 'George Orwell', 1949)
+(6, 'To Kill a Mockingbird', 'Harper Lee', 1960)
+(7, 'The Alchemist', 'Paulo Coelho', 1990)
+(8, '1984', 'George Orwell', 1949)
+(9, 'To Kill a Mockingbird', 'Harper Lee', 1960)
+(10, 'Data science', 'Denial', 2025)
+(11, 'The Alchemist', 'Paulo Coelho', 1990)
+(12, '1984', 'George Orwell', 1949)
+(13, 'To Kill a Mockingbird', 'Harper Lee', 1960)
+(14, 'Data science', 'Denial', 2025)
+(15, 'The Alchemist', 'Paulo Coelho', 1990)
+(16, '1984', 'George Orwell', 1949)
+(17, 'To Kill a Mockingbird', 'Harper Lee', 1960)
+(18, 'Data science', 'Denial', 2025)
+
+ Database operation completed successfully!
+
+'''
+
+
+
