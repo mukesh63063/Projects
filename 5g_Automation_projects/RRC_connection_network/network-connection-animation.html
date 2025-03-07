@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile Device Network Connection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f8ff;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    
+    .animation-container {
+      position: relative;
+      height: 400px;
+      margin: 20px 0;
+      overflow: hidden;
+      background-color: #e6f7ff;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    
+    .phone {
+      position: absolute;
+      left: 100px;
+      top: 200px;
+      width: 60px;
+      height: 100px;
+      background-color: #333;
+      border-radius: 10px;
+      z-index: 2;
+    }
+    
+    .phone-screen {
+      position: absolute;
+      left: 5px;
+      top: 5px;
+      width: 50px;
+      height: 90px;
+      background-color: #66ccff;
+      border-radius: 5px;
+    }
+    
+    .tower {
+      position: absolute;
+      right: 100px;
+      top: 100px;
+      width: 80px;
+      height: 200px;
+      z-index: 2;
+    }
+    
+    .tower-base {
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      width: 40px;
+      height: 120px;
+      background-color: #666;
+      border-radius: 5px 5px 0 0;
+    }
+    
+    .tower-antenna {
+      position: absolute;
+      bottom: 120px;
+      left: 0;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .antenna {
+      width: 8px;
+      height: 80px;
+      background-color: #333;
+    }
+    
+    .signal {
+      position: absolute;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .message-box {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      z-index: 3;
+      opacity: 0;
+      transition: opacity 0.5s;
+      text-align: center;
+      min-width: 200px;
+    }
+    
+    .status {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+    }
+    
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    
+    button:hover {
+      background-color: #45a049;
+    }
+    
+    .phone-signal {
+      position: absolute;
+      left: 170px;
+      top: 230px;
+      width: 0;
+      height: 2px;
+      background-color: #0066ff;
+      z-index: 1;
+      transition: width 1s;
+    }
+    
+    .tower-signal {
+      position: absolute;
+      right: 190px;
+      top: 230px;
+      width: 0;
+      height: 2px;
+      background-color: #ff6600;
+      z-index: 1;
+      transition: width 1s;
+    }
+    
+    .steps-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    
+    .step {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 12px;
+      position: relative;
+    }
+    
+    .step.active {
+      background-color: #4CAF50;
+    }
+    
+    .step-line {
+      position: absolute;
+      top: 10px;
+      left: 40px;
+      width: calc(100% - 80px);
+      height: 2px;
+      background-color: #ccc;
+      z-index: 0;
+    }
+    
+    .phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .cloud {
+      position: absolute;
+      right: 80px;
+      top: 60px;
+      width: 100px;
+      height: 60px;
+      background-color: white;
+      border-radius: 30px;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      color: #333;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .internet-connection {
+      position: absolute;
+      top: 80px;
+      right: 190px;
+      width: 0;
+      height: 2px;
+      background-color: #9933ff;
+      z-index: 1;
+      transition: width 1s;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>How Your Phone Connects to the Network</h1>
+    
+    <div class="animation-container">
+      <div class="phone">
+        <div class="phone-screen">
+          <img src="/api/placeholder/50/90" alt="phone screen">
+        </div>
+      </div>
+      
+      <div class="tower">
+        <div class="tower-base"></div>
+        <div class="tower-antenna">
+          <div class="antenna" style="margin-left: 10px;"></div>
+          <div class="antenna" style="margin-left: 30px;"></div>
+          <div class="antenna" style="margin-left: 60px;"></div>
+        </div>
+      </div>
+      
+      <div class="cloud">
+        Internet
+      </div>
+      
+      <div class="phone-signal"></div>
+      <div class="tower-signal"></div>
+      <div class="internet-connection"></div>
+      
+      <div class="message-box" id="message">Hello</div>
+    </div>
+    
+    <div class="steps-container">
+      <div class="step-line"></div>
+      <div class="step" id="step1">1</div>
+      <div class="step" id="step2">2</div>
+      <div class="step" id="step3">3</div>
+      <div class="step" id="step4">4</div>
+    </div>
+    
+    <div class="status" id="status">Phone is idle</div>
+    
+    <div class="controls">
+      <button id="start-btn">Start Connection</button>
+      <button id="reset-btn">Reset</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const phoneSignal = document.querySelector('.phone-signal');
+      const towerSignal = document.querySelector('.tower-signal');
+      const internetConnection = document.querySelector('.internet-connection');
+      const messageBox = document.getElementById('message');
+      const statusText = document.getElementById('status');
+      const startBtn = document.getElementById('start-btn');
+      const resetBtn = document.getElementById('reset-btn');
+      const steps = document.querySelectorAll('.step');
+      
+      let currentStep = 0;
+      let animationRunning = false;
+      
+      function showMessage(message, duration = 2000) {
+        messageBox.textContent = message;
+        messageBox.style.opacity = 1;
+        
+        setTimeout(() => {
+          messageBox.style.opacity = 0;
+        }, duration);
+      }
+      
+      function updateStatus(message) {
+        statusText.textContent = message;
+      }
+      
+      function updateSteps(step) {
+        steps.forEach((s, index) => {
+          if (index < step) {
+            s.classList.add('active');
+          } else {
+            s.classList.remove('active');
+          }
+        });
+      }
+      
+      async function startAnimation() {
+        if (animationRunning) return;
+        animationRunning = true;
+        currentStep = 0;
+        
+        // Step 1: Phone sends wake-up signal
+        updateStatus("Step 1: Your phone is waking up and reaching out to the network");
+        updateSteps(1);
+        showMessage("Hello, Network! I need to connect!");
+        await new Promise(resolve => setTimeout(resolve, 500));
+        phoneSignal.style.width = '135px';
+        
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // Step 2: Tower responds with timing info
+        updateStatus("Step 2: Network tower sees your phone and responds");
+        updateSteps(2);
+        showMessage("I see you! Here's your timing info.");
+        towerSignal.style.width = '135px';
+        
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // Step 3: Phone sends connection request
+        updateStatus("Step 3: Your phone sends a formal connection request");
+        updateSteps(3);
+        phoneSignal.style.width = '0';
+        towerSignal.style.width = '0';
+        
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        showMessage("I'd like to connect fully, please!");
+        phoneSignal.style.width = '135px';
+        
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // Step 4: Connection established
+        updateStatus("Step 4: Connection established! Your phone is now online");
+        updateSteps(4);
+        showMessage("Connection approved! You're online!");
+        towerSignal.style.width = '135px';
+        
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Show internet connection
+        internetConnection.style.width = '100px';
+        
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        showMessage("Now you can use the internet!");
+        
+        animationRunning = false;
+      }
+      
+      function resetAnimation() {
+        phoneSignal.style.width = '0';
+        towerSignal.style.width = '0';
+        internetConnection.style.width = '0';
+        messageBox.style.opacity = 0;
+        updateStatus("Phone is idle");
+        updateSteps(0);
+        currentStep = 0;
+        animationRunning = false;
+      }
+      
+      startBtn.addEventListener('click', startAnimation);
+      resetBtn.addEventListener('click', resetAnimation);
+    });
+  </script>
+</body>
+</html>
