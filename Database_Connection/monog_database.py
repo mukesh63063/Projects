@@ -41,3 +41,13 @@ for record in records:
 # Step 5: Close connection
 client.close()
 print("\nDatabase operation completed successfully!")
+
+
+# Basic commands
+#---------------
+# Open cmd terminal.  
+# mongoshall     (wait few seconds)
+# show dbs
+# use databaseName
+# show collections    ( table(mysql) = collection(mongo) )
+# db.tableName.findall().  Or db.tableName.findall().pretty()
