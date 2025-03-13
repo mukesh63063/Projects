@@ -1,0 +1,3936 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.12.6 on win32)" generated="2025-03-13T11:40:53.761885" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Library" source="C:\Users\Mukesh Prajapati\turtleproject\pythonProject3\Day9\Assignment_Lgn_cmplt\test_library.robot">
+<kw name="Create Session" owner="RequestsLibrary" type="SETUP">
+<msg time="2025-03-13T11:40:54.123042" level="INFO">Creating Session using : alias=library, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>library</arg>
+<arg>http://127.0.0.1:5000</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-03-13T11:40:54.123042" elapsed="0.000000"/>
+</kw>
+<test id="s1-t1" name="Test Get Available Books" line="21">
+<kw name="Setup Test Data" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.124041" level="INFO">${data} = {'title': 'Test Book', 'author': 'Test Author', 'genre': 'Fiction'}</msg>
+<var>${data}</var>
+<arg>title=Test Book</arg>
+<arg>author=Test Author</arg>
+<arg>genre=Fiction</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.124041" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.148706" level="INFO">POST Request : url=http://127.0.0.1:5000/add_book 
+ path_url=/add_book 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '67', 'Content-Type': 'application/json'} 
+ body=b'{"title": "Test Book", "author": "Test Author", "genre": "Fiction"}' 
+ </msg>
+<msg time="2025-03-13T11:40:54.148706" level="INFO">POST Response : url=http://127.0.0.1:5000/add_book 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '43', 'Connection': 'close'} 
+ body={
+  "message": "Book added successfully"
+}
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.149642" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/add_book</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.124041" elapsed="0.025601"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.154747" level="INFO">GET Request : url=http://127.0.0.1:5000/books 
+ path_url=/books 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-13T11:40:54.154747" level="INFO">GET Response : url=http://127.0.0.1:5000/books 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '4368', 'Connection': 'close'} 
+ body=[
+  {
+    "author": "Mukesh prapajapti",
+    "genre": "GenAI",
+    "id": 6,
+    "status": "available",
+    "title": "Data Science"
+  },
+  {
+    "author": "Herry",
+    "genre": "SpiderMan",
+    "id": 7,
+    "status": "available",
+    "title": "Movie"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 8,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 9,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 10,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 11,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 12,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 13,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 15,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 16,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 17,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 18,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 20,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 21,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 22,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 23,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 24,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 25,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 26,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 27,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 28,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 29,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 30,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 31,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 32,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 33,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 34,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 35,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 36,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 37,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 38,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 39,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 40,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 41,
+    "status": "available",
+    "title": "Test Book"
+  }
+]
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.154747" level="INFO">${books_response} = &lt;Response [200]&gt;</msg>
+<var>${books_response}</var>
+<arg>library</arg>
+<arg>/books</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.149642" elapsed="0.005105"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.155739" level="INFO">${books} = [{'author': 'Mukesh prapajapti', 'genre': 'GenAI', 'id': 6, 'status': 'available', 'title': 'Data Science'}, {'author': 'Herry', 'genre': 'SpiderMan', 'id': 7, 'status': 'available', 'title': 'Movie'}...</msg>
+<var>${books}</var>
+<arg>${books_response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.155739" elapsed="0.000906"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.156645" level="INFO">${BOOK_ID} = 6</msg>
+<var>${BOOK_ID}</var>
+<arg>${books[0]['id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.156645" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.156645" level="INFO">${BOOK_ID} = 6</msg>
+<arg>${BOOK_ID}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.156645" elapsed="0.001097"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.123042" elapsed="0.034700"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.163652" level="INFO">GET Request : url=http://127.0.0.1:5000/books 
+ path_url=/books 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-13T11:40:54.163652" level="INFO">GET Response : url=http://127.0.0.1:5000/books 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '4368', 'Connection': 'close'} 
+ body=[
+  {
+    "author": "Mukesh prapajapti",
+    "genre": "GenAI",
+    "id": 6,
+    "status": "available",
+    "title": "Data Science"
+  },
+  {
+    "author": "Herry",
+    "genre": "SpiderMan",
+    "id": 7,
+    "status": "available",
+    "title": "Movie"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 8,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 9,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 10,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 11,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 12,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 13,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 15,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 16,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 17,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 18,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 20,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 21,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 22,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 23,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 24,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 25,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 26,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 27,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 28,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 29,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 30,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 31,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 32,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 33,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 34,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 35,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 36,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 37,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 38,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 39,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 40,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 41,
+    "status": "available",
+    "title": "Test Book"
+  }
+]
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.164648" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/books</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.157742" elapsed="0.006906"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.165645" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.164648" elapsed="0.000997"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.166645" level="INFO">${books} = [{'author': 'Mukesh prapajapti', 'genre': 'GenAI', 'id': 6, 'status': 'available', 'title': 'Data Science'}, {'author': 'Herry', 'genre': 'SpiderMan', 'id': 7, 'status': 'available', 'title': 'Movie'}...</msg>
+<var>${books}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.166645" elapsed="0.000000"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.167692" level="INFO">Length is 34.</msg>
+<arg>${books}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.166645" elapsed="0.001047"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.123042" elapsed="0.044650"/>
+</test>
+<test id="s1-t2" name="Test Search Books" line="27">
+<kw name="Setup Test Data" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.169648" level="INFO">${data} = {'title': 'Test Book', 'author': 'Test Author', 'genre': 'Fiction'}</msg>
+<var>${data}</var>
+<arg>title=Test Book</arg>
+<arg>author=Test Author</arg>
+<arg>genre=Fiction</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.169648" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.177645" level="INFO">POST Request : url=http://127.0.0.1:5000/add_book 
+ path_url=/add_book 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '67', 'Content-Type': 'application/json'} 
+ body=b'{"title": "Test Book", "author": "Test Author", "genre": "Fiction"}' 
+ </msg>
+<msg time="2025-03-13T11:40:54.177645" level="INFO">POST Response : url=http://127.0.0.1:5000/add_book 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '43', 'Connection': 'close'} 
+ body={
+  "message": "Book added successfully"
+}
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.177645" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/add_book</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.169648" elapsed="0.007997"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.183645" level="INFO">GET Request : url=http://127.0.0.1:5000/books 
+ path_url=/books 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-13T11:40:54.183645" level="INFO">GET Response : url=http://127.0.0.1:5000/books 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '4496', 'Connection': 'close'} 
+ body=[
+  {
+    "author": "Mukesh prapajapti",
+    "genre": "GenAI",
+    "id": 6,
+    "status": "available",
+    "title": "Data Science"
+  },
+  {
+    "author": "Herry",
+    "genre": "SpiderMan",
+    "id": 7,
+    "status": "available",
+    "title": "Movie"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 8,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 9,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 10,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 11,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 12,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 13,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 15,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 16,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 17,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 18,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 20,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 21,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 22,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 23,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 24,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 25,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 26,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 27,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 28,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 29,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 30,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 31,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 32,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 33,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 34,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 35,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 36,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 37,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 38,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 39,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 40,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 41,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 42,
+    "status": "available",
+    "title": "Test Book"
+  }
+]
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.183645" level="INFO">${books_response} = &lt;Response [200]&gt;</msg>
+<var>${books_response}</var>
+<arg>library</arg>
+<arg>/books</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.177645" elapsed="0.006000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.184644" level="INFO">${books} = [{'author': 'Mukesh prapajapti', 'genre': 'GenAI', 'id': 6, 'status': 'available', 'title': 'Data Science'}, {'author': 'Herry', 'genre': 'SpiderMan', 'id': 7, 'status': 'available', 'title': 'Movie'}...</msg>
+<var>${books}</var>
+<arg>${books_response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.183645" elapsed="0.000999"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.185647" level="INFO">${BOOK_ID} = 6</msg>
+<var>${BOOK_ID}</var>
+<arg>${books[0]['id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.185647" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.185647" level="INFO">${BOOK_ID} = 6</msg>
+<arg>${BOOK_ID}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.185647" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.168647" elapsed="0.017000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.190732" level="INFO">GET Request : url=http://127.0.0.1:5000/search?query=Test 
+ path_url=/search?query=Test 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-13T11:40:54.190732" level="INFO">GET Response : url=http://127.0.0.1:5000/search?query=Test 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '3832', 'Connection': 'close'} 
+ body=[
+  {
+    "author": "Hohare",
+    "genre": "Python",
+    "id": 5,
+    "status": "borrowed",
+    "title": "Testing "
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 8,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 9,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 10,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 11,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 12,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 13,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 15,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 16,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 18,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 20,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 21,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 22,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 23,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 24,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 26,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 27,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 29,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 30,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 31,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 32,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 33,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 34,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 35,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 37,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 38,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 39,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 40,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 41,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 42,
+    "status": "available",
+    "title": "Test Book"
+  }
+]
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.190732" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/search</arg>
+<arg>params=query=Test</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.186648" elapsed="0.004084"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.191643" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.191643" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.192644" level="INFO">${books} = [{'author': 'Hohare', 'genre': 'Python', 'id': 5, 'status': 'borrowed', 'title': 'Testing '}, {'author': 'Test Author', 'genre': 'Fiction', 'id': 8, 'status': 'available', 'title': 'Test Book'}, {'aut...</msg>
+<var>${books}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.192644" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>len(${books}) &gt;= 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.192644" elapsed="0.001002"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.168647" elapsed="0.024999"/>
+</test>
+<test id="s1-t3" name="Test Borrow Book" line="33">
+<kw name="Setup Test Data" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.195642" level="INFO">${data} = {'title': 'Test Book', 'author': 'Test Author', 'genre': 'Fiction'}</msg>
+<var>${data}</var>
+<arg>title=Test Book</arg>
+<arg>author=Test Author</arg>
+<arg>genre=Fiction</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.195642" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.203649" level="INFO">POST Request : url=http://127.0.0.1:5000/add_book 
+ path_url=/add_book 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '67', 'Content-Type': 'application/json'} 
+ body=b'{"title": "Test Book", "author": "Test Author", "genre": "Fiction"}' 
+ </msg>
+<msg time="2025-03-13T11:40:54.203649" level="INFO">POST Response : url=http://127.0.0.1:5000/add_book 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '43', 'Connection': 'close'} 
+ body={
+  "message": "Book added successfully"
+}
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.203649" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/add_book</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.195642" elapsed="0.008007"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.208646" level="INFO">GET Request : url=http://127.0.0.1:5000/books 
+ path_url=/books 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-13T11:40:54.209648" level="INFO">GET Response : url=http://127.0.0.1:5000/books 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '4624', 'Connection': 'close'} 
+ body=[
+  {
+    "author": "Mukesh prapajapti",
+    "genre": "GenAI",
+    "id": 6,
+    "status": "available",
+    "title": "Data Science"
+  },
+  {
+    "author": "Herry",
+    "genre": "SpiderMan",
+    "id": 7,
+    "status": "available",
+    "title": "Movie"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 8,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 9,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 10,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 11,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 12,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 13,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 15,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 16,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 17,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 18,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 20,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 21,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 22,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 23,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 24,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 25,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 26,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 27,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 28,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 29,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 30,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 31,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 32,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 33,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 34,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 35,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 36,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 37,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 38,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 39,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 40,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 41,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 42,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 43,
+    "status": "available",
+    "title": "Test Book"
+  }
+]
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.209648" level="INFO">${books_response} = &lt;Response [200]&gt;</msg>
+<var>${books_response}</var>
+<arg>library</arg>
+<arg>/books</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.203649" elapsed="0.005999"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.209648" level="INFO">${books} = [{'author': 'Mukesh prapajapti', 'genre': 'GenAI', 'id': 6, 'status': 'available', 'title': 'Data Science'}, {'author': 'Herry', 'genre': 'SpiderMan', 'id': 7, 'status': 'available', 'title': 'Movie'}...</msg>
+<var>${books}</var>
+<arg>${books_response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.209648" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.210650" level="INFO">${BOOK_ID} = 6</msg>
+<var>${BOOK_ID}</var>
+<arg>${books[0]['id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.209648" elapsed="0.001002"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.210650" level="INFO">${BOOK_ID} = 6</msg>
+<arg>${BOOK_ID}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.210650" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.195642" elapsed="0.015008"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.218748" level="INFO">POST Request : url=http://127.0.0.1:5000/borrow/6 
+ path_url=/borrow/6 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-03-13T11:40:54.218748" level="INFO">POST Response : url=http://127.0.0.1:5000/borrow/6 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '46', 'Connection': 'close'} 
+ body={
+  "message": "Book borrowed successfully"
+}
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.219746" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/borrow/${BOOK_ID}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.211741" elapsed="0.008005"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.219746" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.219746" elapsed="0.001005"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()['message']}</arg>
+<arg>Book borrowed successfully</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.220751" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.194645" elapsed="0.027192"/>
+</test>
+<test id="s1-t4" name="Test Return Book" line="38">
+<kw name="Setup Test Data" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.222748" level="INFO">${data} = {'title': 'Test Book', 'author': 'Test Author', 'genre': 'Fiction'}</msg>
+<var>${data}</var>
+<arg>title=Test Book</arg>
+<arg>author=Test Author</arg>
+<arg>genre=Fiction</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.222748" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.231349" level="INFO">POST Request : url=http://127.0.0.1:5000/add_book 
+ path_url=/add_book 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '67', 'Content-Type': 'application/json'} 
+ body=b'{"title": "Test Book", "author": "Test Author", "genre": "Fiction"}' 
+ </msg>
+<msg time="2025-03-13T11:40:54.231349" level="INFO">POST Response : url=http://127.0.0.1:5000/add_book 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '43', 'Connection': 'close'} 
+ body={
+  "message": "Book added successfully"
+}
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.231349" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/add_book</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.223855" elapsed="0.008494"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.237353" level="INFO">GET Request : url=http://127.0.0.1:5000/books 
+ path_url=/books 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-13T11:40:54.237353" level="INFO">GET Response : url=http://127.0.0.1:5000/books 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '4618', 'Connection': 'close'} 
+ body=[
+  {
+    "author": "Herry",
+    "genre": "SpiderMan",
+    "id": 7,
+    "status": "available",
+    "title": "Movie"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 8,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 9,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 10,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 11,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 12,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 13,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 15,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 16,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 17,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 18,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 20,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 21,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 22,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 23,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 24,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 25,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 26,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 27,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 28,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 29,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 30,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 31,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 32,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 33,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 34,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 35,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 36,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 37,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 38,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 39,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 40,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 41,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 42,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 43,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 44,
+    "status": "available",
+    "title": "Test Book"
+  }
+]
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.238352" level="INFO">${books_response} = &lt;Response [200]&gt;</msg>
+<var>${books_response}</var>
+<arg>library</arg>
+<arg>/books</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.232349" elapsed="0.006003"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.238352" level="INFO">${books} = [{'author': 'Herry', 'genre': 'SpiderMan', 'id': 7, 'status': 'available', 'title': 'Movie'}, {'author': 'Test Author', 'genre': 'Fiction', 'id': 8, 'status': 'available', 'title': 'Test Book'}, {'aut...</msg>
+<var>${books}</var>
+<arg>${books_response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.238352" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.239357" level="INFO">${BOOK_ID} = 7</msg>
+<var>${BOOK_ID}</var>
+<arg>${books[0]['id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.239357" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.239357" level="INFO">${BOOK_ID} = 7</msg>
+<arg>${BOOK_ID}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.239357" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.222748" elapsed="0.016609"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.248357" level="INFO">POST Request : url=http://127.0.0.1:5000/borrow/7 
+ path_url=/borrow/7 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-03-13T11:40:54.248357" level="INFO">POST Response : url=http://127.0.0.1:5000/borrow/7 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '46', 'Connection': 'close'} 
+ body={
+  "message": "Book borrowed successfully"
+}
+ 
+ </msg>
+<arg>library</arg>
+<arg>/borrow/${BOOK_ID}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.240446" elapsed="0.007911"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.256347" level="INFO">POST Request : url=http://127.0.0.1:5000/return/7 
+ path_url=/return/7 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-03-13T11:40:54.256347" level="INFO">POST Response : url=http://127.0.0.1:5000/return/7 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '46', 'Connection': 'close'} 
+ body={
+  "message": "Book returned successfully"
+}
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.256347" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/return/${BOOK_ID}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.248357" elapsed="0.007990"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.256347" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.256347" elapsed="0.001006"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()['message']}</arg>
+<arg>Book returned successfully</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.257353" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.222748" elapsed="0.035605"/>
+</test>
+<test id="s1-t5" name="Test Add Book" line="45">
+<kw name="Setup Test Data" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.259348" level="INFO">${data} = {'title': 'Test Book', 'author': 'Test Author', 'genre': 'Fiction'}</msg>
+<var>${data}</var>
+<arg>title=Test Book</arg>
+<arg>author=Test Author</arg>
+<arg>genre=Fiction</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.259348" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.267449" level="INFO">POST Request : url=http://127.0.0.1:5000/add_book 
+ path_url=/add_book 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '67', 'Content-Type': 'application/json'} 
+ body=b'{"title": "Test Book", "author": "Test Author", "genre": "Fiction"}' 
+ </msg>
+<msg time="2025-03-13T11:40:54.268449" level="INFO">POST Response : url=http://127.0.0.1:5000/add_book 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '43', 'Connection': 'close'} 
+ body={
+  "message": "Book added successfully"
+}
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.268449" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/add_book</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.259348" elapsed="0.009101"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.274446" level="INFO">GET Request : url=http://127.0.0.1:5000/books 
+ path_url=/books 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-13T11:40:54.274446" level="INFO">GET Response : url=http://127.0.0.1:5000/books 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '4746', 'Connection': 'close'} 
+ body=[
+  {
+    "author": "Herry",
+    "genre": "SpiderMan",
+    "id": 7,
+    "status": "available",
+    "title": "Movie"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 8,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 9,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 10,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 11,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 12,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 13,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 15,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 16,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 17,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 18,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 20,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 21,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 22,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 23,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 24,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 25,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 26,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 27,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 28,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 29,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 30,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 31,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 32,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 33,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 34,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 35,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 36,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 37,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 38,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 39,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 40,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 41,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 42,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 43,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 44,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 45,
+    "status": "available",
+    "title": "Test Book"
+  }
+]
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.275454" level="INFO">${books_response} = &lt;Response [200]&gt;</msg>
+<var>${books_response}</var>
+<arg>library</arg>
+<arg>/books</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.268449" elapsed="0.007005"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.275454" level="INFO">${books} = [{'author': 'Herry', 'genre': 'SpiderMan', 'id': 7, 'status': 'available', 'title': 'Movie'}, {'author': 'Test Author', 'genre': 'Fiction', 'id': 8, 'status': 'available', 'title': 'Test Book'}, {'aut...</msg>
+<var>${books}</var>
+<arg>${books_response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.275454" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.276450" level="INFO">${BOOK_ID} = 7</msg>
+<var>${BOOK_ID}</var>
+<arg>${books[0]['id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.275454" elapsed="0.000996"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.276450" level="INFO">${BOOK_ID} = 7</msg>
+<arg>${BOOK_ID}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.276450" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.259348" elapsed="0.017102"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.277497" level="INFO">${data} = {'title': 'New Book', 'author': 'New Author', 'genre': 'New Genre'}</msg>
+<var>${data}</var>
+<arg>title=New Book</arg>
+<arg>author=New Author</arg>
+<arg>genre=New Genre</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.277497" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.285471" level="INFO">POST Request : url=http://127.0.0.1:5000/add_book 
+ path_url=/add_book 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '67', 'Content-Type': 'application/json'} 
+ body=b'{"title": "New Book", "author": "New Author", "genre": "New Genre"}' 
+ </msg>
+<msg time="2025-03-13T11:40:54.285471" level="INFO">POST Response : url=http://127.0.0.1:5000/add_book 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '43', 'Connection': 'close'} 
+ body={
+  "message": "Book added successfully"
+}
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.285471" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/add_book</arg>
+<arg>json=${data}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.277497" elapsed="0.007974"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.286447" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.286447" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()['message']}</arg>
+<arg>Book added successfully</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.286447" elapsed="0.001013"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.259348" elapsed="0.028112"/>
+</test>
+<test id="s1-t6" name="Test Update Book" line="51">
+<kw name="Setup Test Data" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.289468" level="INFO">${data} = {'title': 'Test Book', 'author': 'Test Author', 'genre': 'Fiction'}</msg>
+<var>${data}</var>
+<arg>title=Test Book</arg>
+<arg>author=Test Author</arg>
+<arg>genre=Fiction</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.289468" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.298547" level="INFO">POST Request : url=http://127.0.0.1:5000/add_book 
+ path_url=/add_book 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '67', 'Content-Type': 'application/json'} 
+ body=b'{"title": "Test Book", "author": "Test Author", "genre": "Fiction"}' 
+ </msg>
+<msg time="2025-03-13T11:40:54.298547" level="INFO">POST Response : url=http://127.0.0.1:5000/add_book 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '43', 'Connection': 'close'} 
+ body={
+  "message": "Book added successfully"
+}
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.298547" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/add_book</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.289468" elapsed="0.009079"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.304476" level="INFO">GET Request : url=http://127.0.0.1:5000/books 
+ path_url=/books 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-13T11:40:54.304476" level="INFO">GET Response : url=http://127.0.0.1:5000/books 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '5002', 'Connection': 'close'} 
+ body=[
+  {
+    "author": "Herry",
+    "genre": "SpiderMan",
+    "id": 7,
+    "status": "available",
+    "title": "Movie"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 8,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 9,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 10,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 11,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 12,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 13,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 15,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 16,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 17,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 18,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 20,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 21,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 22,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 23,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 24,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 25,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 26,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 27,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 28,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 29,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 30,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 31,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 32,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 33,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 34,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 35,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 36,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 37,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 38,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 39,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 40,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 41,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 42,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 43,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 44,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 45,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 46,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 47,
+    "status": "available",
+    "title": "Test Book"
+  }
+]
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.304476" level="INFO">${books_response} = &lt;Response [200]&gt;</msg>
+<var>${books_response}</var>
+<arg>library</arg>
+<arg>/books</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.298547" elapsed="0.005929"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.305444" level="INFO">${books} = [{'author': 'Herry', 'genre': 'SpiderMan', 'id': 7, 'status': 'available', 'title': 'Movie'}, {'author': 'Test Author', 'genre': 'Fiction', 'id': 8, 'status': 'available', 'title': 'Test Book'}, {'aut...</msg>
+<var>${books}</var>
+<arg>${books_response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.304476" elapsed="0.000968"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.305444" level="INFO">${BOOK_ID} = 7</msg>
+<var>${BOOK_ID}</var>
+<arg>${books[0]['id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.305444" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.305444" level="INFO">${BOOK_ID} = 7</msg>
+<arg>${BOOK_ID}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.305444" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.289468" elapsed="0.017014"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.306482" level="INFO">${data} = {'title': 'Updated Book', 'author': 'Updated Author', 'genre': 'Updated Genre'}</msg>
+<var>${data}</var>
+<arg>title=Updated Book</arg>
+<arg>author=Updated Author</arg>
+<arg>genre=Updated Genre</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.306482" elapsed="0.000000"/>
+</kw>
+<kw name="PUT On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.316546" level="INFO">PUT Request : url=http://127.0.0.1:5000/update_book/7 
+ path_url=/update_book/7 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '79', 'Content-Type': 'application/json'} 
+ body=b'{"title": "Updated Book", "author": "Updated Author", "genre": "Updated Genre"}' 
+ </msg>
+<msg time="2025-03-13T11:40:54.316546" level="INFO">PUT Response : url=http://127.0.0.1:5000/update_book/7 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '45', 'Connection': 'close'} 
+ body={
+  "message": "Book updated successfully"
+}
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.316546" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/update_book/${BOOK_ID}</arg>
+<arg>json=${data}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.306482" elapsed="0.010064"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.317541" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.317541" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()['message']}</arg>
+<arg>Book updated successfully</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.317541" elapsed="0.001008"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.288557" elapsed="0.029992"/>
+</test>
+<test id="s1-t7" name="Test Remove Book" line="57">
+<kw name="Setup Test Data" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.320539" level="INFO">${data} = {'title': 'Test Book', 'author': 'Test Author', 'genre': 'Fiction'}</msg>
+<var>${data}</var>
+<arg>title=Test Book</arg>
+<arg>author=Test Author</arg>
+<arg>genre=Fiction</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.320539" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.327658" level="INFO">POST Request : url=http://127.0.0.1:5000/add_book 
+ path_url=/add_book 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '67', 'Content-Type': 'application/json'} 
+ body=b'{"title": "Test Book", "author": "Test Author", "genre": "Fiction"}' 
+ </msg>
+<msg time="2025-03-13T11:40:54.327658" level="INFO">POST Response : url=http://127.0.0.1:5000/add_book 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '43', 'Connection': 'close'} 
+ body={
+  "message": "Book added successfully"
+}
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.327658" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/add_book</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.320539" elapsed="0.007119"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.335660" level="INFO">GET Request : url=http://127.0.0.1:5000/books 
+ path_url=/books 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-13T11:40:54.335660" level="INFO">GET Response : url=http://127.0.0.1:5000/books 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '5150', 'Connection': 'close'} 
+ body=[
+  {
+    "author": "Updated Author",
+    "genre": "Updated Genre",
+    "id": 7,
+    "status": "available",
+    "title": "Updated Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 8,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 9,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 10,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 11,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 12,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 13,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 15,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 16,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 17,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 18,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 20,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 21,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 22,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 23,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 24,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 25,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 26,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 27,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 28,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 29,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 30,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 31,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 32,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 33,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 34,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 35,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 36,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 37,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 38,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 39,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 40,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 41,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 42,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 43,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 44,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 45,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 46,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 47,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 48,
+    "status": "available",
+    "title": "Test Book"
+  }
+]
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.335660" level="INFO">${books_response} = &lt;Response [200]&gt;</msg>
+<var>${books_response}</var>
+<arg>library</arg>
+<arg>/books</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.327658" elapsed="0.008002"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.335660" level="INFO">${books} = [{'author': 'Updated Author', 'genre': 'Updated Genre', 'id': 7, 'status': 'available', 'title': 'Updated Book'}, {'author': 'Test Author', 'genre': 'Fiction', 'id': 8, 'status': 'available', 'title':...</msg>
+<var>${books}</var>
+<arg>${books_response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.335660" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.336758" level="INFO">${BOOK_ID} = 7</msg>
+<var>${BOOK_ID}</var>
+<arg>${books[0]['id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.336758" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.336758" level="INFO">${BOOK_ID} = 7</msg>
+<arg>${BOOK_ID}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.336758" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.320539" elapsed="0.016219"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.344674" level="INFO">DELETE Request : url=http://127.0.0.1:5000/remove_book/7 
+ path_url=/remove_book/7 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-03-13T11:40:54.344674" level="INFO">DELETE Response : url=http://127.0.0.1:5000/remove_book/7 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '45', 'Connection': 'close'} 
+ body={
+  "message": "Book removed successfully"
+}
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.344674" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/remove_book/${BOOK_ID}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.337659" elapsed="0.007015"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.345682" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.344674" elapsed="0.001008"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()['message']}</arg>
+<arg>Book removed successfully</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.345682" elapsed="0.000982"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.319539" elapsed="0.027125"/>
+</test>
+<test id="s1-t8" name="Test Login Success" line="62">
+<kw name="Setup Test Data" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.348661" level="INFO">${data} = {'title': 'Test Book', 'author': 'Test Author', 'genre': 'Fiction'}</msg>
+<var>${data}</var>
+<arg>title=Test Book</arg>
+<arg>author=Test Author</arg>
+<arg>genre=Fiction</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.348661" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.357658" level="INFO">POST Request : url=http://127.0.0.1:5000/add_book 
+ path_url=/add_book 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '67', 'Content-Type': 'application/json'} 
+ body=b'{"title": "Test Book", "author": "Test Author", "genre": "Fiction"}' 
+ </msg>
+<msg time="2025-03-13T11:40:54.357658" level="INFO">POST Response : url=http://127.0.0.1:5000/add_book 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '43', 'Connection': 'close'} 
+ body={
+  "message": "Book added successfully"
+}
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.357658" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/add_book</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.348661" elapsed="0.008997"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.362659" level="INFO">GET Request : url=http://127.0.0.1:5000/books 
+ path_url=/books 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-13T11:40:54.362659" level="INFO">GET Response : url=http://127.0.0.1:5000/books 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '5139', 'Connection': 'close'} 
+ body=[
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 8,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 9,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 10,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 11,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 12,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 13,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 15,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 16,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 17,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 18,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 20,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 21,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 22,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 23,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 24,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 25,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 26,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 27,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 28,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 29,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 30,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 31,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 32,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 33,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 34,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 35,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 36,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 37,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 38,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 39,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 40,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 41,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 42,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 43,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 44,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 45,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 46,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 47,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 48,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 49,
+    "status": "available",
+    "title": "Test Book"
+  }
+]
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.362659" level="INFO">${books_response} = &lt;Response [200]&gt;</msg>
+<var>${books_response}</var>
+<arg>library</arg>
+<arg>/books</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.357658" elapsed="0.005001"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.363658" level="INFO">${books} = [{'author': 'Test Author', 'genre': 'Fiction', 'id': 8, 'status': 'available', 'title': 'Test Book'}, {'author': 'Test Author', 'genre': 'Fiction', 'id': 9, 'status': 'available', 'title': 'Test Book'...</msg>
+<var>${books}</var>
+<arg>${books_response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.362659" elapsed="0.000999"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.364659" level="INFO">${BOOK_ID} = 8</msg>
+<var>${BOOK_ID}</var>
+<arg>${books[0]['id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.364659" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.364659" level="INFO">${BOOK_ID} = 8</msg>
+<arg>${BOOK_ID}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.364659" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.347660" elapsed="0.016999"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.365660" level="INFO">${data} = {'username': 'admin', 'password': 'admin123'}</msg>
+<var>${data}</var>
+<arg>username=admin</arg>
+<arg>password=admin123</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.365660" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.368676" level="INFO">POST Request : url=http://127.0.0.1:5000/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '45', 'Content-Type': 'application/json'} 
+ body=b'{"username": "admin", "password": "admin123"}' 
+ </msg>
+<msg time="2025-03-13T11:40:54.368676" level="INFO">POST Response : url=http://127.0.0.1:5000/login 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '36', 'Connection': 'close'} 
+ body={
+  "message": "Login successful"
+}
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.368676" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/login</arg>
+<arg>json=${data}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.365660" elapsed="0.003016"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.369705" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.368676" elapsed="0.001029"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()['message']}</arg>
+<arg>Login successful</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.369705" elapsed="0.001027"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.347660" elapsed="0.023072"/>
+</test>
+<test id="s1-t9" name="Test Login Failure" line="68">
+<kw name="Setup Test Data" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.372661" level="INFO">${data} = {'title': 'Test Book', 'author': 'Test Author', 'genre': 'Fiction'}</msg>
+<var>${data}</var>
+<arg>title=Test Book</arg>
+<arg>author=Test Author</arg>
+<arg>genre=Fiction</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.371666" elapsed="0.000995"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.380666" level="INFO">POST Request : url=http://127.0.0.1:5000/add_book 
+ path_url=/add_book 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '67', 'Content-Type': 'application/json'} 
+ body=b'{"title": "Test Book", "author": "Test Author", "genre": "Fiction"}' 
+ </msg>
+<msg time="2025-03-13T11:40:54.380666" level="INFO">POST Response : url=http://127.0.0.1:5000/add_book 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '43', 'Connection': 'close'} 
+ body={
+  "message": "Book added successfully"
+}
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.381683" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/add_book</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.372661" elapsed="0.009022"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.385750" level="INFO">GET Request : url=http://127.0.0.1:5000/books 
+ path_url=/books 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-13T11:40:54.385750" level="INFO">GET Response : url=http://127.0.0.1:5000/books 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '5267', 'Connection': 'close'} 
+ body=[
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 8,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 9,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 10,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 11,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 12,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 13,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 15,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 16,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 17,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 18,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 20,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 21,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 22,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 23,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 24,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 25,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 26,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 27,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Delete Author",
+    "genre": "Delete Genre",
+    "id": 28,
+    "status": "available",
+    "title": "Delete Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 29,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 30,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 31,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 32,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 33,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 34,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 35,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 36,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 37,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 38,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 39,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 40,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 41,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 42,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 43,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 44,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 45,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "New Author",
+    "genre": "New Genre",
+    "id": 46,
+    "status": "available",
+    "title": "New Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 47,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 48,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 49,
+    "status": "available",
+    "title": "Test Book"
+  },
+  {
+    "author": "Test Author",
+    "genre": "Fiction",
+    "id": 50,
+    "status": "available",
+    "title": "Test Book"
+  }
+]
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.385750" level="INFO">${books_response} = &lt;Response [200]&gt;</msg>
+<var>${books_response}</var>
+<arg>library</arg>
+<arg>/books</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.381683" elapsed="0.004979"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.386662" level="INFO">${books} = [{'author': 'Test Author', 'genre': 'Fiction', 'id': 8, 'status': 'available', 'title': 'Test Book'}, {'author': 'Test Author', 'genre': 'Fiction', 'id': 9, 'status': 'available', 'title': 'Test Book'...</msg>
+<var>${books}</var>
+<arg>${books_response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.386662" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.387670" level="INFO">${BOOK_ID} = 8</msg>
+<var>${BOOK_ID}</var>
+<arg>${books[0]['id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.386662" elapsed="0.001008"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.387670" level="INFO">${BOOK_ID} = 8</msg>
+<arg>${BOOK_ID}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.387670" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.371666" elapsed="0.016004"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.387670" level="INFO">${data} = {'username': 'wrong', 'password': 'wrong'}</msg>
+<var>${data}</var>
+<arg>username=wrong</arg>
+<arg>password=wrong</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.387670" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-03-13T11:40:54.391723" level="INFO">POST Request : url=http://127.0.0.1:5000/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '42', 'Content-Type': 'application/json'} 
+ body=b'{"username": "wrong", "password": "wrong"}' 
+ </msg>
+<msg time="2025-03-13T11:40:54.391723" level="INFO">POST Response : url=http://127.0.0.1:5000/login 
+ status=400, reason=BAD REQUEST 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.12.6', 'Date': 'Thu, 13 Mar 2025 06:10:54 GMT', 'Content-Type': 'application/json', 'Content-Length': '46', 'Connection': 'close'} 
+ body={
+  "error": "Invalid username or password"
+}
+ 
+ </msg>
+<msg time="2025-03-13T11:40:54.391723" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>library</arg>
+<arg>/login</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=400</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.388723" elapsed="0.003000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-03-13T11:40:54.392657" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>400</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.391723" elapsed="0.000934"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()['error']}</arg>
+<arg>Invalid username or password</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-13T11:40:54.392657" elapsed="0.001006"/>
+</kw>
+<status status="PASS" start="2025-03-13T11:40:54.371666" elapsed="0.021997"/>
+</test>
+<status status="PASS" start="2025-03-13T11:40:53.762775" elapsed="0.631889"/>
+</suite>
+<statistics>
+<total>
+<stat pass="9" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Library" id="s1" pass="9" fail="0" skip="0">Test Library</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
