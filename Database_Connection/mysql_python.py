@@ -49,3 +49,13 @@ conn.commit()
 cursor.close()
 conn.close()
 print("\n Database operation completed successfully!")
+
+
+# Basic commands 
+# ----------------
+# First Open cmd or any eviroment, if you use cmd then execute this command <mysql -u root -p >. You use instead root your database name. And enter your database password.
+# show databases;
+# use database name;
+# show tables;
+# select * from tableName;
+
